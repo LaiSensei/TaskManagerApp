@@ -20,7 +20,6 @@ Before you can run the app, ensure that you have the following installed:
 ## Setup
 
 1. **Clone the repository**:
-   ```bash
    git clone https://github.com/your-username/TaskManagerApp.git
    cd TaskManagerApp
 
@@ -47,3 +46,4 @@ After starting the server, you can open the app on an Android or iOS emulator or
     yarn iOS
 
 Or, use the QR code displayed in the Expo CLI to run the app on your physical device using the Expo Go app.
+For android phones, use your Expo Go app to scan the QR code. For iPhones, use your camera app to scan the QR code.
