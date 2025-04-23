@@ -39,3 +39,11 @@ You can install the dependencies using Yarn or npm:
 ## Run on an Emulator or Device
 
 After starting the server, you can open the app on an Android or iOS emulator or on your physical device:
+
+### For Android:
+    yarn android
+
+### For iOS
+    yarn iOS
+
+Or, use the QR code displayed in the Expo CLI to run the app on your physical device using the Expo Go app.
