@@ -24,10 +24,18 @@ Before you can run the app, ensure that you have the following installed:
    git clone https://github.com/your-username/TaskManagerApp.git
    cd TaskManagerApp
 
-## Install dependencies
+2. **Install dependencies**:
 
 You can install the dependencies using Yarn or npm:
 
 ### Using Yarn:
-    ```bash
     yarn install
+    yarn start
+
+### Using npm:
+    npm install
+    npm start
+
+## Run on an Emulator or Device
+
+After starting the server, you can open the app on an Android or iOS emulator or on your physical device:
