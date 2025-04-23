@@ -27,26 +27,9 @@ const App = () => {
     setTasks(updatedTasks);
   };
 
+  //Filter task by title for search
   const filteredTasks = tasks.filter((task) =>
     task.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  // Render each task in the list
-  const renderTaskItem = ({ item }: { item: Task }) => (
-    <View style={styles.taskItem}>
-      <Text>{item.title}</Text>
-      <Text>{item.description.split("\n")[0]}...</Text>
-      <Text>{item.status ? 'Completed' : 'Pending'}</Text>
-      <Button title="Toggle Status" onPress={() => toggleTaskStatus(item.id)} />
-      <Button title="Edit" onPress={() => handleEditTask(item.id)} />
-      {editingTaskId === item.id && (
-        <Button title="Save" onPress={() => handleSaveEditedTask(item.id)} />
-      )}
-      <Button title="Delete" onPress={() => handleDeleteTask(item.id)} />
-      <View style={styles.detailsButtonContainer}>
-        <Button title="Details" onPress={() => handleDetailPress(item)} />
-      </View>
-    </View>
   );
 
   const handleDetailPress = (task: Task) => {
@@ -57,7 +40,7 @@ const App = () => {
   const handleAddTask = () => {
     if (newTaskTitle && newTaskDescription) {
       const newTask: Task = {
-        id: Math.floor(Math.random() * 1000), // Random ID
+        id: Math.floor(Math.random() * 1000), // Random ID，add check for ID uniqueness
         title: newTaskTitle,
         description: newTaskDescription,
         status: false,
@@ -96,6 +79,24 @@ const App = () => {
     setTasks(filteredTasks);
   };
 
+  // Render each task in the list
+  const renderTaskItem = ({ item }: { item: Task }) => (
+    <View style={styles.taskItem}>
+      <Text>{item.title}</Text>
+      <Text>{item.description.split("\n")[0]}...</Text>
+      <Text>{item.status ? 'Completed' : 'Pending'}</Text>
+      <Button title="Toggle Status" onPress={() => toggleTaskStatus(item.id)} />
+      <Button title="Edit" onPress={() => handleEditTask(item.id)} />
+      {editingTaskId === item.id && (
+        <Button title="Save" onPress={() => handleSaveEditedTask(item.id)} />
+      )}
+      <Button title="Delete" onPress={() => handleDeleteTask(item.id)} />
+      <View style={styles.detailsButtonContainer}>
+        <Button title="Details" onPress={() => handleDetailPress(item)} />
+      </View>
+    </View>
+  );
+
   // Render the form for adding or editing tasks
   const renderTaskForm = () => (
     <View style={styles.formContainer}>
@@ -127,6 +128,25 @@ const App = () => {
     />
   );
 
+  //Can consider adding modal container.
+  const renderModalContainer = () => (
+    selectedTask && (
+      <Modal
+        visible={isModalVisible}
+        animationType="slide"
+        onRequestClose={() => setIsModalVisible(false)}
+      >
+        <View style={styles.modalContainer}>
+          <Text style={styles.header}>Task Details</Text>
+          <Text>Title: {selectedTask.title}{'\n'}</Text>
+          <Text>Description: {'\n'}{selectedTask.description}{'\n'}</Text>
+          <Text>Status: {selectedTask.status ? 'Completed' : 'Pending'}</Text>
+          <Button title="Close" onPress={() => setIsModalVisible(false)} />
+        </View>
+      </Modal>
+    )
+  );
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -138,23 +158,7 @@ const App = () => {
         renderItem={renderTaskItem}
         keyExtractor={(item) => item.id.toString()}
       />
-      
-      {/* Task Details Modal */}
-      {selectedTask && (
-        <Modal
-          visible={isModalVisible}
-          animationType="slide"
-          onRequestClose={() => setIsModalVisible(false)}
-        >
-          <View style={styles.modalContainer}>
-            <Text style={styles.header}>Task Details</Text>
-            <Text>Title: {selectedTask.title}{'\n'}</Text>
-            <Text>Description: {'\n'}{selectedTask.description}{'\n'}</Text>
-            <Text>Status: {selectedTask.status ? 'Completed' : 'Pending'}</Text>
-            <Button title="Close" onPress={() => setIsModalVisible(false)} />
-          </View>
-        </Modal>
-      )}
+      {renderModalContainer()}
     </View>
   );
 };
