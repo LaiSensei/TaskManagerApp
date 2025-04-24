@@ -40,7 +40,7 @@ const App = () => {
   const handleAddTask = () => {
     if (newTaskTitle && newTaskDescription) {
       const newTask: Task = {
-        id: Math.floor(Math.random() * 1000), // Random ID，add check for ID uniqueness
+        id: Date.now(),
         title: newTaskTitle,
         description: newTaskDescription,
         status: false,
