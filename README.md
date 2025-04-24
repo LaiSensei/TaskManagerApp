@@ -19,11 +19,14 @@ Before you can run the app, ensure that you have the following installed:
 - [Yarn](https://classic.yarnpkg.com/en/docs/install) (optional but recommended)
 - [Expo CLI](https://docs.expo.dev/get-started/installation/)
 
+    npm install -g expo-cli
+
+
 ## Setup
 
 1. **Clone the repository**:
-   git clone https://github.com/your-username/TaskManagerApp.git
-   cd TaskManagerApp
+    git clone https://LaiSensei/TaskManagerApp
+    cd TaskManagerApp
 
 2. **Install dependencies**:
 
@@ -44,7 +47,7 @@ After starting the server, you can open the app on an Android or iOS emulator or
 ### For Android:
     yarn android
 
-### For iOS
+### For iOS (If you are in a mac os or iOS environment)
     yarn iOS
 
 Or, use the QR code displayed in the Expo CLI to run the app on your physical device using the Expo Go app.
