@@ -1,6 +1,6 @@
 # Personal Task Manager
 
-![App Preview](assets/App-Preview.png)
+<img src="assets/App-Preview.png" width="292" height="633" />
 
 This is a personal task manager application built with React Native, Expo, and TypeScript. It allows users to add, edit, delete, and toggle the status of tasks, as well as view task details in a modal.
 
