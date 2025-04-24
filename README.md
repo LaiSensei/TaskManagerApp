@@ -18,16 +18,18 @@ Before you can run the app, ensure that you have the following installed:
 - [Node.js](https://nodejs.org/) (version 14 or higher)
 - [Yarn](https://classic.yarnpkg.com/en/docs/install) (optional but recommended)
 - [Expo CLI](https://docs.expo.dev/get-started/installation/)
-
+    ```bash
     npm install -g expo-cli
+    ```
 
 
 ## Setup
 
 1. **Clone the repository**:
-    git clone https://LaiSensei/TaskManagerApp
+    ```bash
+    git clone https://github.com/LaiSensei/TaskManagerApp
     cd TaskManagerApp
-
+    ```
 2. **Install dependencies**:
 
 You can install the dependencies using Yarn or npm:
